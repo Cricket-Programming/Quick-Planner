@@ -1,0 +1,15 @@
+Hello monkey.
+
+TO run this project and see it created, make sure you are in C:\Users\liaml\My Drive\Planner\my-app in the terminal.
+Run this command: npm run dev
+Open localhost:3000
+To close it: Ctrl + C
+
+The app/api folder hold backend api endpoints (like the one that we need for authentication)
+
+Frameworks used
+next.js is my application framework.
+prisma is the ORM (Object-Relational Mapper). Basically, how my app talks to the database
+
+Company Services
+neon - cloud service for hosting my postgresSQL database
