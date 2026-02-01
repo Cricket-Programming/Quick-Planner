@@ -1,8 +1,10 @@
 "use client";
 
+import { login } from "@/lib/auth-actions";
+import { Session} from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
-import { login } from "@/lib/auth-actions";
+
 export default function Navbar({ session }: {session: Session | null }) { 
     return  (
         <nav className="bg-white shadow-md py-4 border-y border-gray-200">
@@ -13,11 +15,16 @@ export default function Navbar({ session }: {session: Session | null }) {
                 </Link>
 
                 <div className="flex items-center space-x-4">
-                    <Link href={"/trips"} className="hover:text-sky-500">My Trips</Link>
-                    <Link href={"/globe"} className="hover:text-sky-500">Globe</Link>
-                </div>
-
-                {!session && (                
+                    {session ? (
+                    <>
+                        <Link href={"/trips"} className="hover:text-sky-500">
+                        My Trips
+                        </Link>
+                        <Link href={"/globe"} className="hover:text-sky-500">
+                        Globe
+                        </Link>
+                    </>
+                    ) : (        
                     <button 
                         className="flex items-center justify-between hover:text-blue-500 text-red-500 bg-green-400 p-2 rounded-full cursor-pointer"
                         onClick={login}
@@ -33,6 +40,9 @@ export default function Navbar({ session }: {session: Session | null }) {
                         </svg>
                     </button>
                 )}
+                </div>
+
+
             </div>
         </nav>
     )
