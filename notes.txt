@@ -13,3 +13,9 @@ prisma is the ORM (Object-Relational Mapper). Basically, how my app talks to the
 
 Company Services
 neon - cloud service for hosting my postgresSQL database
+
+When cloning the github repo
+-> bring in .env
+-> bring in .env.local
+-> run npm install (builds the native modules )
+-> npx prisma generate

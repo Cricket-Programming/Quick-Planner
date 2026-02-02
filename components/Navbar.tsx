@@ -1,7 +1,7 @@
 "use client";
 
-import { login } from "@/lib/auth-actions";
-import { Session} from "next-auth";
+import { login, logout } from "@/lib/auth-actions";
+import { Session } from "next-auth"; //
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ export default function Navbar({ session }: {session: Session | null }) {
                 </Link>
 
                 <div className="flex items-center space-x-4">
-                    {session ? (
+                    {session ? ( // if session is logged in, then activiate signout button.
                     <>
                         <Link href={"/trips"} className="hover:text-sky-500">
                         My Trips
@@ -23,8 +23,16 @@ export default function Navbar({ session }: {session: Session | null }) {
                         <Link href={"/globe"} className="hover:text-sky-500">
                         Globe
                         </Link>
+                        
+                    <button 
+                        className="flex items-center justify-between hover:text-blue-500 text-red-500 bg-green-400 p-2 rounded-full cursor-pointer"
+                        onClick={logout}
+                    >
+                        Sign Out
+                    </button>  
                     </>
-                    ) : (        
+  
+                    ) : (         // if session is logged out, then activiate sign in button.
                     <button 
                         className="flex items-center justify-between hover:text-blue-500 text-red-500 bg-green-400 p-2 rounded-full cursor-pointer"
                         onClick={login}
