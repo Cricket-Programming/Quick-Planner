@@ -19,3 +19,7 @@ When cloning the github repo
 -> bring in .env.local
 -> run npm install (builds the native modules )
 -> npx prisma generate
+
+
+npx prisma migrate dev
+-> run this command when you edit the schema.prisma. This command detects the differences to that file and applies it to the database

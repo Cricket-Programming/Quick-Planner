@@ -16,21 +16,22 @@ export default function Navbar({ session }: {session: Session | null }) {
 
                 <div className="flex items-center space-x-4">
                     {session ? ( // if session is logged in, then activiate signout button.
-                    <>
-                        <Link href={"/trips"} className="hover:text-sky-500">
-                        My Trips
-                        </Link>
-                        <Link href={"/globe"} className="hover:text-sky-500">
-                        Globe
-                        </Link>
-                        
-                    <button 
-                        className="flex items-center justify-between hover:text-blue-500 text-red-500 bg-green-400 p-2 rounded-full cursor-pointer"
-                        onClick={logout}
-                    >
-                        Sign Out
-                    </button>  
-                    </>
+                        <>
+                            {/* The /trips right here relates to the app router trips folder */}
+                            <Link href={"/trips"} className="hover:text-sky-500">  
+                            My Trips
+                            </Link>
+                            <Link href={"/globe"} className="hover:text-sky-500">
+                            Globe
+                            </Link>
+                            
+                        <button 
+                            className="flex items-center justify-between hover:text-blue-500 text-red-500 bg-green-400 p-2 rounded-full cursor-pointer"
+                            onClick={logout}
+                        >
+                            Sign Out
+                        </button>  
+                        </>
   
                     ) : (         // if session is logged out, then activiate sign in button.
                     <button 
