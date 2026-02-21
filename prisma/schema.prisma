@@ -24,8 +24,9 @@ model User {
   sessions      Session[]
   trips         Trip[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  assignments Assignment[]
 }
 
 model Account {
@@ -69,14 +70,16 @@ model VerificationToken {
 }
 
 model Location {
-  id            String   @id @default(cuid())
+  id            String      @id @default(cuid())
   locationTitle String
   lat           Float
   lng           Float
-  trip          Trip     @relation(fields: [tripId], references: [id])
+  trip          Trip        @relation(fields: [tripId], references: [id])
   tripId        String
-  order         Int      @default(0)
-  createdAt     DateTime @default(now())
+  order         Int         @default(0)
+  createdAt     DateTime    @default(now())
+  assignment    Assignment? @relation(fields: [assignmentId], references: [id])
+  assignmentId  String?
 }
 
 // basically a table (each model created is a table in my database)
@@ -91,6 +94,17 @@ model Trip {
   endDate     DateTime
   user        User     @relation(fields: [userId], references: [id])
   userId      String
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  locations Location[]
+}
+
+model Assignment {
+  id      String   @id @default(cuid())
+  dueDate DateTime
+  user    User     @relation(fields: [userId], references: [id])
+  userId  String
 
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt

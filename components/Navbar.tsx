@@ -19,7 +19,7 @@ export default function Navbar({ session }: {session: Session | null }) {
                         <>
                             {/* The /trips right here relates to the app router trips folder */}
                             <Link href={"/trips"} className="hover:text-sky-500">  
-                            My Trips
+                            Assignments
                             </Link>
                             <Link href={"/globe"} className="hover:text-sky-500">
                             Globe

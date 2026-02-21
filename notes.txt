@@ -23,3 +23,8 @@ When cloning the github repo
 
 npx prisma migrate dev
 -> run this command when you edit the schema.prisma. This command detects the differences to that file and applies it to the database
+
+How to get from Git
+
+
+
