@@ -36,7 +36,7 @@ export default function TripDetailClient({ trip }: TripDetailClientProps) {
                         </div>
                     </div>
                     <div className="mt-4 md:mt-0">
-                        <Link href={`/trips/${trip.id}/itinerary/new`}>
+                        <Link href={`/trips/${trip.id}/itinerary/new`}> 
                             <Button>
                                 <Plus className="mr-2"/>Add location
                             </Button>
@@ -61,7 +61,8 @@ export default function TripDetailClient({ trip }: TripDetailClientProps) {
 
                     <TabsContent value="overview" className="space-y-6">
                         <div className="grid md: grid-cols-2 gap-6">
-                                <h2 className="text-2xl mb-4">Trip Summary</h2>
+                                <h2 className="text-5xl mb-4">Trip Summary</h2>
+                        </div>
                             <div>
                                 <div className="space-y-4">
                                     <div className="flex items-start">
@@ -69,8 +70,10 @@ export default function TripDetailClient({ trip }: TripDetailClientProps) {
                                     </div>
                                     <div>
                                         <p className="font-medium text-gray-700">Dates</p>
-                                        <p className="text-sm text-gray-500"></p>
-                                        {trip.startDate.toLocaleDateString()} - {trip.endDate.toLocaleDateString()}
+                                        <p className="text-sm text-gray-500">
+                                            {trip.startDate.toLocaleDateString()} - {trip.endDate.toLocaleDateString()}
+                                        </p>
+
                                         <br />
                                         {
                                             Math.round(trip.endDate.getTime() - trip.startDate.getTime()) 
@@ -79,8 +82,12 @@ export default function TripDetailClient({ trip }: TripDetailClientProps) {
                                         <div className="flex items-start"></div>
                                     </div>
                                 </div>
+
+                                <div className="flex items-start">
+
+                                </div>
                             </div>
-                        </div>
+ 
                     </TabsContent>
                 </Tabs>
             </div>

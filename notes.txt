@@ -1,21 +1,19 @@
 Hello monkey.
 
+ GET /trips/cmlmqqra80001u7w8x3yt3306/itinerary/new 200 in 1557ms
+ After npm run dev, this means the web page sent a request to the server to GET the contents successfully, returning a status code of 200.
+
+RUN PROJECT
 TO run this project and see it created, make sure you are in C:\Users\liaml\My Drive\Planner\my-app in the terminal.
 Run this command: npm run dev
 Open localhost:3000
 To close it: Ctrl + C
 
-The app/api folder hold backend api endpoints (like the one that we need for authentication)
-
-Frameworks used
-next.js is my application framework.
-prisma is the ORM (Object-Relational Mapper). Basically, how my app talks to the database
-
-Company Services
-neon - cloud service for hosting my postgreSQL database
+npx prisma migrate dev ----- run this command when you edit the schema.prisma. This command detects the differences to that file and applies it to the database
 
 
-Clone Repo
+GIT MANAGEMENT
+CLONE REPO
 git clone https://github.com/cricket-programming/quick-planner.git
 cd quick-planner
 
@@ -27,23 +25,36 @@ node -v
 npm -v
 git -v
 
-
 -> bring in .env
 -> bring in .env.local
-
 
 Make sure prisma services installed
 npx prisma generate
 npx prisma migrate deploy
 
+GIT PULLING
+Once you have a git project used locally, here is how you sync the cloud changes down.
+-> git checkout main ------ this command makes sure you are on the main branch
+-> git pull origin main ------ this syncs the changes
+-> npm install ----- only has to be run if the dependency changed
 
--> npx prisma generate
+Troubleshooting:
+"hard resets - WILL DELETE LOCAL CHANGES
+git fetch --all
 
 
-npx prisma migrate dev
--> run this command when you edit the schema.prisma. This command detects the differences to that file and applies it to the database
 
-How to get from Git
+ARCHITECTURE
+The app/api folder hold backend api endpoints (like the one that we need for authentication)
+
+Frameworks used
+next.js is my application framework.
+prisma is the ORM (Object-Relational Mapper). Basically, how my app talks to the database
+
+Company Services
+neon - cloud service for hosting my postgreSQL database
+
+
 
 
 
