@@ -12,12 +12,31 @@ next.js is my application framework.
 prisma is the ORM (Object-Relational Mapper). Basically, how my app talks to the database
 
 Company Services
-neon - cloud service for hosting my postgresSQL database
+neon - cloud service for hosting my postgreSQL database
 
-When cloning the github repo
+
+Clone Repo
+git clone https://github.com/cricket-programming/quick-planner.git
+cd quick-planner
+
+Bringing project to another computer instructions
+-> run npm install (builds the native modules)
+
+Check services installed
+node -v
+npm -v
+git -v
+
+
 -> bring in .env
 -> bring in .env.local
--> run npm install (builds the native modules )
+
+
+Make sure prisma services installed
+npx prisma generate
+npx prisma migrate deploy
+
+
 -> npx prisma generate
 
 
